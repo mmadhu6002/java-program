@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class DetectCapital {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a word: ");
+        String word = sc.nextLine();
+
+        boolean result;
+
+        if (word.equals(word.toUpperCase())) {
+            result = true;
+        } else if (word.equals(word.toLowerCase())) {
+            result = true;
+        } else if (Character.isUpperCase(word.charAt(0)) &&
+                   word.substring(1).equals(word.substring(1).toLowerCase())) {
+            result = true;
+        } else {
+            result = false;
+        }
+
+        if (result) {
+            System.out.println("True - Correct Capital Usage");
+        } else {
+            System.out.println("False - Incorrect Capital Usage");
+        }
+
+        sc.close();
+    }
+}
